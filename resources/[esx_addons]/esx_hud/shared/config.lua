@@ -1,5 +1,5 @@
 Config = {
-    Locale = GetConvar("esx:locale", "fr"), -- If you want to change UI language texts you can do it here: web/src/assets/translate.json !!IMPORTANT that this can only be modified with the unbuilt version.
+    Locale = GetConvar("esx:locale", "en"), -- If you want to change UI language texts you can do it here: web/src/assets/translate.json !!IMPORTANT that this can only be modified with the unbuilt version.
     Colors = {
         Info = {
             ["money-text-color"] = "#4d6973",
@@ -53,12 +53,12 @@ Config = {
         VehicleHandlers = false, -- Engine toggle, Indicator lights
         MinimapOnFoot = false,
         Needle = true,
-        StatusPercent = false,
-        CenterStatuses = false,
+        StatusPercent = true,
+        CenterStatuses = true,
     },
     Default = {
         ServerLogo = "https://esx.s3.fr-par.scw.cloud/blanc-800x800.png",
-        Kmh = true,
+        Kmh = false,
         PassengerSpeedo = false, -- if this true , you can see speedometer if you don't driver
     },
 }
