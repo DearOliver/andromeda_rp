@@ -21,9 +21,9 @@ local function refresh_inventory()
 end
 
 local function F5Menu()
-    local main_menu = RageUI.CreateMenu('Andromeda', '')
+    local main_menu = RageUI.CreateMenu('Andromeda', 'Menu F5')
     main_menu:SetRectangleBanner(84, 40, 127, 100)
-    local inventory_main_menu = RageUI.CreateSubMenu(main_menu, 'Andromeda', '')
+    local inventory_main_menu = RageUI.CreateSubMenu(main_menu, 'Andromeda', 'Menu F5')
     inventory_main_menu:SetRectangleBanner(84, 40, 127, 100)
 
     RageUI.Visible(main_menu, not RageUI.Visible(main_menu))
@@ -33,8 +33,6 @@ local function F5Menu()
         
         ------------MAIN MENU-------------
         RageUI.IsVisible(main_menu, true, true, true, function()
-            RageUI.Separator('MENU F5')
-
             RageUI.ButtonWithStyle(Config_f5menu.Locales['inventory'], nil, {RightLabel = "🎒"}, true, function(h,a,s)
                 if s then
                     refresh_inventory()
@@ -50,8 +48,6 @@ local function F5Menu()
             while inventory == nil or inventory.loadout == nil or inventory.items == nil do
                 Citizen.Wait(5)
             end
-
-            RageUI.Separator('MENU F5')
 
             RageUI.ProgressBar(inventory.currentWeight, inventory.weightCapacity, {ProgressBackgroundColor = {R = 255, G = 255, B = 255, A = 255}, ProgressColor = {R = 84, G = 40, B = 127, A = 255}}, inventory.currentWeight..'kg', inventory.weightCapacity..'kg')
 

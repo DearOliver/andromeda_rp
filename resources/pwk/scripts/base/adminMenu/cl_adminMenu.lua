@@ -66,17 +66,17 @@ local function give(player, item, count, isWeapon)
 end
 
 local function AdminMenu()
-    local main_menu = RageUI.CreateMenu('Andromeda', '')
+    local main_menu = RageUI.CreateMenu('Andromeda', 'Menu Admin')
     main_menu:SetRectangleBanner(173, 86, 255, 100)
-    local players_main_menu = RageUI.CreateSubMenu(main_menu, 'Andromeda', '')
+    local players_main_menu = RageUI.CreateSubMenu(main_menu, 'Andromeda', 'Menu Admin')
     players_main_menu:SetRectangleBanner(173, 86, 255, 100)
-    local player_main_menu = RageUI.CreateSubMenu(main_menu, 'Andromeda', '')
+    local player_main_menu = RageUI.CreateSubMenu(main_menu, 'Andromeda', 'Menu Admin')
     player_main_menu:SetRectangleBanner(173, 86, 255, 100)
-    local give_main_menu = RageUI.CreateSubMenu(main_menu, 'Andromeda', '')
+    local give_main_menu = RageUI.CreateSubMenu(main_menu, 'Andromeda', 'Menu Admin')
     player_main_menu:SetRectangleBanner(173, 86, 255, 100)
-    local give_items_main_menu = RageUI.CreateSubMenu(give_main_menu, 'Andromeda', '')
+    local give_items_main_menu = RageUI.CreateSubMenu(give_main_menu, 'Andromeda', 'Menu Admin')
     player_main_menu:SetRectangleBanner(173, 86, 255, 100)
-    local give_weapons_main_menu = RageUI.CreateSubMenu(give_main_menu, 'Andromeda', '')
+    local give_weapons_main_menu = RageUI.CreateSubMenu(give_main_menu, 'Andromeda', 'Menu Admin')
     player_main_menu:SetRectangleBanner(173, 86, 255, 100)
 
     RageUI.Visible(main_menu, not RageUI.Visible(main_menu))
@@ -87,7 +87,6 @@ local function AdminMenu()
         ------------MAIN MENU-------------
         RageUI.IsVisible(main_menu, true, true, true, function()
             reset_player()
-            RageUI.Separator(string.upper(role))
 
             RageUI.ButtonWithStyle(Config_AdminMenu.Locales['players'], nil, {RightLabel = "👥"}, true, function(h,a,s)
                 if s then
@@ -102,7 +101,6 @@ local function AdminMenu()
         ----------PLAYERS MAIN MENU--------
         RageUI.IsVisible(players_main_menu, true, true, true, function()
             reset_player()
-            RageUI.Separator(string.upper(role))
 
             for _,p in pairs(players) do
                 if p.group == 'admin' or p.group == 'modo' or p.group == 'help' then
@@ -130,8 +128,6 @@ local function AdminMenu()
             while not player do
                 Citizen.Wait(5)
             end
-
-            RageUI.Separator(string.upper(player.name))
 
             RageUI.ButtonWithStyle(Config_AdminMenu.Locales['tp'], nil, {RightLabel = Config_AdminMenu.Locales['tp_to']}, perms['teleportation'], function(h,a,s)
                 if s then
@@ -175,8 +171,6 @@ local function AdminMenu()
                 Citizen.Wait(5)
             end
 
-            RageUI.Separator(string.upper(role))
-
             RageUI.ButtonWithStyle(Config_AdminMenu.Locales['items'], nil, {RightLabel = nil}, true, function(h, a, s)
             end, give_items_main_menu)
 
@@ -187,7 +181,6 @@ local function AdminMenu()
         end)
 
         RageUI.IsVisible(give_items_main_menu, true, true, true, function()
-            RageUI.Separator(string.upper(role))
                 
             for _,i in pairs(all_items) do
                 RageUI.ButtonWithStyle(i.label, nil, {RightLabel = nil}, true, function(h,a,s)
@@ -200,7 +193,6 @@ local function AdminMenu()
         end)
 
         RageUI.IsVisible(give_weapons_main_menu, true, true, true, function()
-            RageUI.Separator(string.upper(role))
                 
             for _,w in pairs(all_weapons) do
                 RageUI.ButtonWithStyle(w.label, nil, {RightLabel = nil}, true, function(h,a,s)
