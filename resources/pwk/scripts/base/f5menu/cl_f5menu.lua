@@ -68,8 +68,6 @@ local function F5Menu()
                                 end
                             end
                         })
-
-
                     end
                 end
 
